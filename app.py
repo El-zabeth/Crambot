@@ -45,7 +45,7 @@ def vector_store(text_chunks):
 
 def get_conversational_chain(tools, ques):
     # Directly set the API key (not recommended for production)
-    openai_api_key = "your_actual_api_key"
+    openai_api_key = 
 
     # Initialize the ChatOpenAI instance with the API key
     llm = ChatOpenAI(model_name="gpt-3.5-turbo", temperature=0, api_key=openai_api_key)
