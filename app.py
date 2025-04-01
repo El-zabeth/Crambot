@@ -128,10 +128,7 @@ def get_conversational_chain(tools, ques):
     #     st.markdown(ques)
 
     llm = ChatOpenAI(model_name="gpt-4o", temperature=0)
-    # if "history" not in st.session_state:
-    #     st.session_state.history = []
-    # # Initialize chat_history as a list of messages (it can start as empty or contain an initial system message)
-    # chat_history = st.session_state.history
+
 
     # Initialize agent_scratchpad as an empty string or any default value
     agent_scratchpad = ""  # This could be modified if you need to store intermediate steps
@@ -153,12 +150,6 @@ def get_conversational_chain(tools, ques):
         ("human", "{input}"),
         ("placeholder", "{agent_scratchpad}"),
 
-        # ("assistant", """Based on the paragraph you provided, here are some specific revision questions:
-        #                 1. What are the main concepts or key ideas discussed in the paragraph?
-        #                 2. How does [specific process/idea] mentioned in the paragraph work?
-        #                 3. What is the role of [a particular element or concept] as described in the paragraph?
-        #                 4. Can you summarize how [an event or fact] is explained in the paragraph?
-        #                 5. What conclusion or outcome is drawn from the information provided in the paragraph?""")
     ])
 
     # Set up the tools for the agent
