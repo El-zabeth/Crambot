@@ -2,5 +2,4 @@
 deletelater.txt
 venv
 config
-firebase_config.py
 auth_component.py
