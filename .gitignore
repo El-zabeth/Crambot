@@ -1,5 +1,4 @@
 .env
-deletelater.txt
 venv
 config
 auth_component.py

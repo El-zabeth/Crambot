@@ -13,7 +13,6 @@ from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_core.prompts import ChatPromptTemplate
 # from langchain_community.embeddings.spacy_embeddings import SpacyEmbeddings
 from langchain_community.embeddings.openai import OpenAIEmbeddings
-
 from langchain_community.vectorstores import FAISS
 from langchain.tools.retriever import create_retriever_tool
 from dotenv import load_dotenv
