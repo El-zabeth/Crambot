@@ -13,3 +13,6 @@ Pyrebase4==4.3.0
 requests==2.28.2
 requests-toolbelt==0.9.1
 langchain-community==0.3.12
+langchain-core==0.3.49
+langchain-openai==0.3.1
+langchain-text-splitters==0.3.3
