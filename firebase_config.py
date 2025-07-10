@@ -22,7 +22,7 @@ cred_path ={
 # Initialize Firebase Admin SDK (only if not initialized)
 if len(firebase_admin._apps) == 0:
     # Initialize Firebase if not already initialized
-    cred = credentials.Certificate(cred_path)
+    cred = credentials.Certificate(st.secrets["firebase_service_account"])
     firebase_admin.initialize_app(cred)
 else:
     print("Firebase is already initialized.")
