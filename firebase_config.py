@@ -2,6 +2,7 @@ import firebase_admin
 import streamlit as st
 from firebase_admin import credentials, firestore, auth
 import os
+import json
 
 # Path to your Firebase service account key JSON file from environment variable
 
@@ -22,7 +23,7 @@ cred_path ={
 # Initialize Firebase Admin SDK (only if not initialized)
 if len(firebase_admin._apps) == 0:
     # Initialize Firebase if not already initialized
-    cred = credentials.Certificate(st.secrets["firebase_service_account"])
+    cred = credentials.Certificate(json.loads(st.secrets["firebase_service_account"]))
     firebase_admin.initialize_app(cred)
 else:
     print("Firebase is already initialized.")

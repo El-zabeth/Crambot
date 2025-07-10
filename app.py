@@ -28,6 +28,7 @@ from openai import OpenAI
 from serpapi import GoogleSearch
 from querying import query_pinecone  # Import query_pinecone from querying.py
 import textwrap
+import json
 
 # Suppress unnecessary logs
 logging.getLogger("langchain").setLevel(logging.ERROR)
@@ -51,7 +52,7 @@ firebase = pyrebase.initialize_app(firebase_config)
 auth = firebase.auth()
 
 if not firebase_admin._apps:
-    cred = credentials.Certificate(st.secrets["firebase_service_account"])  # Replace with your actual key file
+    cred = credentials.Certificate(json.loads(st.secrets["firebase_service_account"]))
     firebase_admin.initialize_app(cred)
 
 # embeddings = SpacyEmbeddings(model_name="en_core_web_sm")
