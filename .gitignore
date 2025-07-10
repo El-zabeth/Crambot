@@ -2,3 +2,4 @@
 venv
 config
 auth_component.py
+secrets.toml
