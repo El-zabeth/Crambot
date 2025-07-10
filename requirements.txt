@@ -19,5 +19,4 @@ langchain-text-splitters==0.3.3
 serpapi==0.1.5
 google_search_results==2.4.2
 pinecone==6.0.2
-pinecone-client==6.0.0
 pinecone-plugin-interface==0.0.7
