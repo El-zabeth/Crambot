@@ -4,14 +4,16 @@ from pinecone import Pinecone as pc
 from dotenv import load_dotenv
 import os
 import logging
+import streamlit as st
 
 # Set up logging
 logging.basicConfig(level=logging.INFO)
 
 # Load environment variables
 load_dotenv()
-pinecone_api_key = os.getenv("PINECONE_API_KEY")
-pinecone_environment = os.getenv("PINECONE_ENVIRONMENT")
+pinecone_api_key = st.secrets["api_keys"]["PINECONE_API_KEY"]
+pinecone_environment = st.secrets["api_keys"]["PINECONE_ENVIRONMENT"]
+
 
 # Initialize Pinecone
 try:

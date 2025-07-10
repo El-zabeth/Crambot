@@ -10,11 +10,12 @@ from gensim import corpora
 from gensim.models import LdaModel
 import pinecone
 from pinecone import ServerlessSpec
+import streamlit as st
 
 # Load environment variables
 load_dotenv()
-pinecone_api_key = os.getenv("PINECONE_API_KEY")
-pinecone_environment = os.getenv("PINECONE_ENVIRONMENT")
+pinecone_api_key = st.secrets["api_keys"]["PINECONE_API_KEY"]
+pinecone_environment = st.secrets["api_keys"]["PINECONE_ENVIRONMENT"]
 
 # Initialize Pinecone
 pc = pinecone.Pinecone(api_key=pinecone_api_key, environment=pinecone_environment)

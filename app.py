@@ -35,7 +35,7 @@ logging.getLogger("langchain").setLevel(logging.ERROR)
 client = OpenAI()
 # Load environment variables
 load_dotenv()
-serpapi_key = os.getenv("SERPAPI_KEY")
+serpapi_key = st.secrets["api_keys"]["SERPAPI_KEY"]
 
 firebase_config = {
     "apiKey": st.secrets.firebase_client.apiKey,
