@@ -9,3 +9,4 @@ tiktoken==0.8.0
 sentence-transformers==3.4.1
 scikit-learn==1.6.1
 firebase-admin==6.7.0
+Pyrebase4==4.3.0
