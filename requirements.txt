@@ -10,3 +10,5 @@ sentence-transformers==3.4.1
 scikit-learn==1.6.1
 firebase-admin==6.7.0
 Pyrebase4==4.3.0
+requests==2.28.2
+requests-toolbelt==1.0.0
