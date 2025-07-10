@@ -1,7 +1,7 @@
 import streamlit as st
 from firebase_admin import auth
 from firebase_config import *
-from authentication.auth_component import firebase_auth_component
+#from authentication.auth_component import firebase_auth_component
 import firebase_admin
 from firebase_admin import credentials,auth as admin_auth
 import os
