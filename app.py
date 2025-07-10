@@ -51,7 +51,7 @@ firebase = pyrebase.initialize_app(firebase_config)
 auth = firebase.auth()
 
 if not firebase_admin._apps:
-    cred = credentials.Certificate(st.secrets["firebase_service_account"])
+    cred = credentials.Certificate(dict(st.secrets["firebase_service_account"]))
     firebase_admin.initialize_app(cred)
 
 # embeddings = SpacyEmbeddings(model_name="en_core_web_sm")
