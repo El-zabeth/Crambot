@@ -32,7 +32,7 @@ import textwrap
 # Suppress unnecessary logs
 logging.getLogger("langchain").setLevel(logging.ERROR)
 
-client = OpenAI(api_key=st.secrets["api_keys"]["OPENAI_API_KEY"])
+client = OpenAI()
 
 # Load environment variables
 #load_dotenv()
