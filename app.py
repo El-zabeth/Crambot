@@ -15,7 +15,7 @@ from langchain_core.prompts import ChatPromptTemplate
 from langchain_community.embeddings.openai import OpenAIEmbeddings
 from langchain_community.vectorstores import FAISS
 from langchain.tools.retriever import create_retriever_tool
-from dotenv import load_dotenv
+#from dotenv import load_dotenv
 from langchain_openai import ChatOpenAI
 from langchain.agents import AgentExecutor, create_tool_calling_agent
 from firebase_config import *
@@ -32,9 +32,10 @@ import textwrap
 # Suppress unnecessary logs
 logging.getLogger("langchain").setLevel(logging.ERROR)
 
-client = OpenAI()
+client = OpenAI(api_key=st.secrets["api_keys"]["OPENAI_API_KEY"])
+
 # Load environment variables
-load_dotenv()
+#load_dotenv()
 serpapi_key = st.secrets["api_keys"]["SERPAPI_KEY"]
 
 firebase_config = {
