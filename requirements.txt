@@ -17,6 +17,15 @@ langchain-core==0.3.49
 langchain-openai==0.3.1
 langchain-text-splitters==0.3.3
 serpapi==0.1.5
+google-api-core==2.24.2
+google-api-python-client==2.166.0
+google-auth==2.38.0
+google-auth-httplib2==0.2.0
+google-cloud-core==2.4.3
+google-cloud-firestore==2.20.1
+google-cloud-storage==3.1.0
+google-crc32c==1.7.1
+google-resumable-media==2.7.2
 google_search_results==2.4.2
 pinecone==6.0.2
 pinecone-plugin-interface==0.0.7
