@@ -16,7 +16,6 @@ langchain-community==0.3.12
 langchain-core==0.3.49
 langchain-openai==0.3.1
 langchain-text-splitters==0.3.3
-serpapi==0.1.5
 google-api-core==2.24.2
 google-api-python-client==2.166.0
 google-auth==2.38.0
