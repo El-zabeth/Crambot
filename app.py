@@ -40,6 +40,7 @@ serpapi_key = st.secrets["api_keys"]["SERPAPI_KEY"]
 firebase_config = {
     "apiKey": st.secrets.firebase_client.apiKey,
     "authDomain": st.secrets.firebase_client.authDomain,
+    "databaseURL":st.secrets.firebase_client.databaseURL,
     "projectId": st.secrets.firebase_client.projectId,
     "storageBucket": st.secrets.firebase_client.storageBucket,
     "messagingSenderId": st.secrets.firebase_client.messagingSenderId,
