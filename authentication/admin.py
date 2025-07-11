@@ -1,14 +1,9 @@
 import streamlit as st
-from firebase_admin import auth
 from firebase_config import *
 #from authentication.auth_component import firebase_auth_component
 import firebase_admin
 from firebase_admin import credentials,auth as admin_auth
-import os
-from dotenv import load_dotenv
-from pyrebase import pyrebase
-from authentication.sign_in import sign_in_ui
-from authentication.sign_up import sign_up_ui
+
 
 # Ensure session state variables exist
 if "action_done" not in st.session_state:
