@@ -3,16 +3,19 @@ from firebase_config import *
 from firebase_admin import credentials,auth as admin_auth
 import pyrebase
 
+
 firebase_config = {
-    "apiKey": os.getenv("FIREBASE_API_KEY"),
-    "authDomain": os.getenv("FIREBASE_AUTH_DOMAIN"),
-    "databaseURL": os.getenv("FIREBASE_DATABASE_URL"),
-    "projectId": os.getenv("FIREBASE_PROJECT_ID"),
-    "storageBucket": os.getenv("FIREBASE_STORAGE_BUCKET"),
-    "messagingSenderId": os.getenv("FIREBASE_MESSAGING_SENDER_ID"),
-    "appId": os.getenv("FIREBASE_APP_ID"),
-    "measurementId": os.getenv("FIREBASE_MEASUREMENT_ID")
+    "apiKey": st.secrets.firebase_client.apiKey,
+    "authDomain": st.secrets.firebase_client.authDomain,
+    "databaseURL":st.secrets.firebase_client.databaseURL,
+    "projectId": st.secrets.firebase_client.projectId,
+    "storageBucket": st.secrets.firebase_client.storageBucket,
+    "messagingSenderId": st.secrets.firebase_client.messagingSenderId,
+    "appId": st.secrets.firebase_client.appId,
+    "measurementId": st.secrets.firebase_client.measurementId,
 }
+
+
 firebase = pyrebase.initialize_app(firebase_config)
 auth = firebase.auth()
 
