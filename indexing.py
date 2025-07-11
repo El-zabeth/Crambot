@@ -14,8 +14,8 @@ import streamlit as st
 
 # Load environment variables
 load_dotenv()
-pinecone_api_key = st.secrets["api_keys"]["PINECONE_API_KEY"]
-pinecone_environment = st.secrets["api_keys"]["PINECONE_ENVIRONMENT"]
+pinecone_api_key = st.secrets["PINECONE_API_KEY"]
+pinecone_environment = st.secrets["PINECONE_ENVIRONMENT"]
 
 # Initialize Pinecone
 pc = pinecone.Pinecone(api_key=pinecone_api_key, environment=pinecone_environment)
