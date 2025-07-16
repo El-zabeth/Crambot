@@ -3,6 +3,7 @@ from firebase_config import *
 #from authentication.auth_component import firebase_auth_component
 import firebase_admin
 from firebase_admin import credentials,auth as admin_auth
+from datetime import datetime
 
 
 # Ensure session state variables exist
@@ -23,8 +24,8 @@ def fetch_all_users():
                 "Display Name": user.display_name if user.display_name else "N/A",
                 "Phone Number": user.phone_number if user.phone_number else "N/A",
                 "Photo URL": user.photo_url if user.photo_url else "N/A",
-                "Last Login": user.user_metadata.last_sign_in_timestamp if user.user_metadata else "N/A",
-                "Account Created": user.user_metadata.creation_timestamp if user.user_metadata else "N/A",
+                "Last Login": datetime.fromtimestamp(user.user_metadata.last_sign_in_timestamp / 1000).strftime('%B %d, %Y at %I:%M %p') if user.user_metadata and user.user_metadata.last_sign_in_timestamp else "N/A",
+                "Account Created": datetime.fromtimestamp(user.user_metadata.creation_timestamp / 1000).strftime('%B %d, %Y at %I:%M %p') if user.user_metadata and user.user_metadata.creation_timestamp else "N/A",
             })
     except Exception as e:
         st.error(f"Error fetching users: {e}")
@@ -34,19 +35,19 @@ def fetch_all_users():
 
 
 # Function to delete user account and refresh user list
-def delete_user(uid):
+def delete_user(uid, email=None):
     try:
         admin_auth.delete_user(uid)  # Attempt to delete the user
         st.session_state["action_done"] = True
-        
-        # Verify if the user still exists after deletion attempt
-        try:
-            admin_auth.get_user(uid)  # Attempt to fetch the user
-            st.error(f"User {uid} was not deleted and still exists.")
-        except firebase_admin.auth.UserNotFoundError:
-            st.success(f"User {uid} no longer exists.")
 
-        # Refresh the list of users
+        # Check if user still exists
+        try:
+            admin_auth.get_user(uid)
+            st.error(f"User {email or uid} was not deleted and still exists.")
+        except firebase_admin.auth.UserNotFoundError:
+            st.success(f"✅ User {email or uid} successfully deleted.")
+
+        # Refresh the user list
         st.session_state["fetched_users"] = fetch_all_users()
 
     except firebase_admin.exceptions.FirebaseError as firebase_error:
@@ -69,9 +70,9 @@ def admin_page():
         for user in users:
             with st.expander(f"User: {user['Email']}"):
                 st.write(f"*UID:* {user['UID']}")
-                st.write(f"*Email Verified:* {user['Email Verified']}")
-                st.write(f"*Display Name:* {user['Display Name']}")
-                st.write(f"*Phone Number:* {user['Phone Number']}")
+                #st.write(f"*Email Verified:* {user['Email Verified']}")
+                #st.write(f"*Display Name:* {user['Display Name']}")
+                #st.write(f"*Phone Number:* {user['Phone Number']}")
                 st.write(f"*Account Created:* {user['Account Created']}")
                 st.write(f"*Last Login:* {user['Last Login']}")
 
